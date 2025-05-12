@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEA Electricity Bill Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+  <div class="container">
+    <h1>NEA Electricity Bill Calculator</h1>
+    <p class="note">* 1 unit = 1 kWh</p>
+
+    <div class="input-group">
+      <label for="prevReading">Previous Month Reading (units):</label>
+      <input type="number" id="prevReading" />
+    </div>
+
+    <div class="input-group">
+      <label for="currReading">Current Month Reading (units):</label>
+      <input type="number" id="currReading" />
+    </div>
+
+    <div class="input-group">
+      <label for="directUnits">OR Enter Consumed Units Directly:</label>
+      <input type="number" id="directUnits" />
+    </div>
+
+    <div class="input-group">
+      <label for="ampType">Connection Type:</label>
+      <select id="ampType">
+        <option value="5">5A</option>
+        <option value="15">15A</option>
+        <option value="30">30A</option>
+      </select>
+    </div>
+
+    <button onclick="updateBill()" class="calc-button">Calculate</button>
+
+    <div class="output-group">
+      <label>Consumed Units:</label>
+      <div class="result-box" id="consumedUnit">--</div>
+    </div>
+
+    <div class="output-group">
+      <label>Total Bill:</label>
+      <div class="result-box" id="totalBill">--</div>
+    </div>
+
+    <div class="section">
+      <h3>Payment Timing Scenarios</h3>
+      <div class="output-group">
+        <label>Paid within 7 days (2% rebate):</label>
+        <div class="result-box" id="rebateBill">--</div>
+      </div>
+
+      <div class="output-group">
+        <label>Paid within 1 month (No fine):</label>
+        <div class="result-box" id="normalBill">--</div>
+      </div>
+
+      <div class="output-group">
+        <label>Paid after 1 month (10% fine):</label>
+        <div class="result-box" id="fine10">--</div>
+      </div>
+
+      <div class="output-group">
+        <label>After 2 months (20% fine):</label>
+        <div class="result-box" id="fine20">--</div>
+      </div>
+
+      <div class="output-group">
+        <label>After 3 months (25% fine):</label>
+        <div class="result-box" id="fine25">--</div>
+      </div>
+
+      <div class="output-group">
+        <label>After 4 months:</label>
+        <div class="result-box">Power Cut ⚠️</div>
+      </div>
+    </div>
+    <p class="note">* This tool provides estimates based on NEA domestic tariff rates (FY 2080/81). Demand charges are included.<br>Designed by H.S Limbu</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
